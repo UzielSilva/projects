@@ -1,11 +1,14 @@
 ////////////////////////////////////////////////////////////
 // Procedure: Models.degradaTodo(int, int, int, int, int) //
-// Depends for: Models.valor(int, int, int)               //
-// Function: Proceso que lee los valores de la pantalla   //
-// en forma de bits y los interpreta y manda al proceso   //
-// valor para que pueda ser procesado.                    //
 //                                                        //
-// 
+// Depends for: Repositories.coloresActualesTiles()       //
+//              Repositories.coloresActualesSprites()     //
+//                                                        //
+// Function: Proceso que modifica los colores de los      //
+// tiles y/o sprites de tal manera que se vea un efecto   //
+// de degradar la pantalla para el vbi().                 //
+////////////////////////////////////////////////////////////
+
 degradaTodo(rojoNuevo,verdeNuevo,azulNuevo,velocidad,continuo){
   v += velocidad;
   var r = velocidad;

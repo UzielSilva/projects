@@ -1,6 +1,8 @@
 ////////////////////////////////////////////////////////////
 // Procedure: coloresActualesSprites()                    //
+//                                                        //
 // Depends for: N/A                                       //
+//                                                        //
 // Function: Proceso que lee los valores de los colores   //
 // de los sprites actuales.                               //
 ////////////////////////////////////////////////////////////
