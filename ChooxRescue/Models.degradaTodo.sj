@@ -3,6 +3,7 @@
 //                                                        //
 // Depends for: Repositories.coloresActualesTiles()       //
 //              Repositories.coloresActualesSprites()     //
+//              
 //                                                        //
 // Function: Proceso que modifica los colores de los      //
 // tiles y/o sprites de tal manera que se vea un efecto   //
@@ -12,7 +13,9 @@
 degradaTodo(rojoNuevo,verdeNuevo,azulNuevo,velocidad,continuo){
   v += velocidad;
   var r = velocidad;
-  if(spritesDa)
+  
+  if(spritesData != null)
+    
   for(var i = 0;i < 16;i++){
     if(i < 15 && spritesData != null){
       var coloresSprites = ((peek(0x820 + (i << 1))) << 8)|(peek(0x821 + (i << 1)));

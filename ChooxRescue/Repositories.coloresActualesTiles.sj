@@ -10,6 +10,6 @@
 coloresActualesTiles(){
   var arr = new array [16];
   for(var i = 0; i < length(arr); i++)
-    arr[i]=((peek(0x820 + (i << 1))) << 8)|(peek(0x801 + (i << 1)));
+    arr[i]=((peek(0x800 + (i << 1))) << 8)|(peek(0x801 + (i << 1)));
   return arr;
 }

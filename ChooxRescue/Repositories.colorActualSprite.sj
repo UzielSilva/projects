@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////
-// Procedure: colorActualTile()                           //
+// Procedure: colorActualSprite()                         //
 //                                                        //
 // Depends for: N/A                                       //
 //                                                        //
@@ -7,6 +7,6 @@
 // slot de los tiles actuales.                            //
 ////////////////////////////////////////////////////////////
 
-colorActualTile(slot){
-  return ((peek(0x800 + (slot << 1))) << 8)|(peek(0x801 + (slot << 1)));
+colorActualSprite(slot){
+  return ((peek(0x820 + (slot << 1))) << 8)|(peek(0x821 + (slot << 1)));
 }
