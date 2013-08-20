@@ -7,9 +7,6 @@
 // informacion.                                           //
 ////////////////////////////////////////////////////////////
 
-var tilesData = null;
-
 isAssignedTilesData(){
   return tilesData != null;
 }
-var i = isAssignedTilesData();

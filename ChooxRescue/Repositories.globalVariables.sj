@@ -3,3 +3,9 @@
 //    Repositories.isAssignedTilesData()               //
 /////////////////////////////////////////////////////////
 var tilesData = null;
+/////////////////////////////////////////////////////////
+//  Used for:                                          //
+//    Models.degradaTodo()                             //
+//    Models.apareceTodo()                             //
+/////////////////////////////////////////////////////////
+var velocidadCambioColor = 0;

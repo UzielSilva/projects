@@ -3,37 +3,55 @@
 //                                                        //
 // Depends for: Repositories.coloresActualesTiles()       //
 //              Repositories.coloresActualesSprites()     //
-//              
+//              Repositories.isAssignedTilesData()        //
+//              Repositories.isAssignedSpritesData()      //
+//              Util.valorColorModifier(int, int, int)    //
 //                                                        //
 // Function: Proceso que modifica los colores de los      //
 // tiles y/o sprites de tal manera que se vea un efecto   //
 // de degradar la pantalla para el vbi().                 //
 ////////////////////////////////////////////////////////////
 
-degradaTodo(rojoNuevo,verdeNuevo,azulNuevo,velocidad,continuo){
-  v += velocidad;
-  var r = velocidad;
-  
-  if(spritesData != null)
-    
+degradaTodo(rojoNuevo,verdeNuevo,azulNuevo,v,continuo){
+  var coloresSprites = null;
+  var coloresTiles = null;
+  if(isAssignedSpritesData())
+    coloresSprites = coloresActualesSprites();
+  if(isAssignedTilesData())
+    coloresTiles = coloresActualesTiles();
   for(var i = 0;i < 16;i++){
-    if(i < 15 && spritesData != null){
-      var coloresSprites = ((peek(0x820 + (i << 1))) << 8)|(peek(0x821 + (i << 1)));
-      var rojoSprites = ((coloresSprites >> 10) & 0x1f);
-      var verdeSprites = ((coloresSprites >> 5) & 0x1f);
-      var azulSprites = (coloresSprites & 0x1f);
-      setSpriteColor(i, valor(rojoSprites,v,rojoNuevo),
-                        valor(verdeSprites,v,verdeNuevo),
-                        valor(azulSprites,v,azulNuevo));
+    if(i < 15 && coloresSprites != null){
+      var rojoSprites = ((coloresSprites[i] >> 10) & 0x1f);
+      var verdeSprites = ((coloresSprites[i] >> 5) & 0x1f);
+      var azulSprites = (coloresSprites[i] & 0x1f);
+      var arrColors = new array [3];
+      if((var temp = valorColorModifier(rojoSprites,v,rojoNuevo)) == -1)
+        arrColors[0] = rojoNuevo;
+      else
+        arrColors[0] = temp;
+      if((var temp = valorColorModifier(verdeSprites,v,verdeNuevo)) == -1)
+        arrColors[1] = verdeNuevo;
+      else
+        arrColors[1] = temp;
+      if((var temp = valorColorModifier(azulSprites,v,azulNuevo)) == -1)
+        arrColors[2] = azulNuevo;
+      else
+        arrColors[2] = temp;
+      setSpriteColor(i, arrColors[0],
+                        arrColors[1],
+                        arrColors[2]);
     }
-    if(tilesData != null){
-      var coloresTiles = ((peek(0x800 + (i << 1))) << 8)|(peek(0x801 + (i << 1)));
-      var rojoTiles = ((coloresTiles >> 10) & 0x1f);
-      var verdeTiles = ((coloresTiles >> 5) & 0x1f);
-      var azulTiles = (coloresTiles & 0x1f);
-      setTileColor(i, valor(rojoTiles,v,rojoNuevo),
-                      valor(verdeTiles,v,verdeNuevo),
-                      valor(azulTiles,v,azulNuevo));
+    if(coloresTiles != null){
+      var rojoTiles = ((coloresTiles[i] >> 10) & 0x1f);
+      var verdeTiles = ((coloresTiles[i] >> 5) & 0x1f);
+      var azulTiles = (coloresTiles[i] & 0x1f);
+      var arrColors = new array [3];
+      arrColors[0] = valorColorModifier(rojoSprites,v,rojoNuevo);
+      arrColors[1] = valorColorModifier(verdeSprites,v,verdeNuevo);
+      arrColors[2] = valorColorModifier(azulSprites,v,azulNuevo);
+      setTileColor(i, arrColors[0],
+                      arrColors[1],
+                      arrColors[2]);
     }
   }
   if (v > 36){
