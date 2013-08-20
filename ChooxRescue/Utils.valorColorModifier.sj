@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////
-// Procedure: valorColorModifier()                        //
+// Procedure: Utils.valorColorModifier()                  //
 //                                                        //
 // Depends for: N/A                                       //
 //                                                        //

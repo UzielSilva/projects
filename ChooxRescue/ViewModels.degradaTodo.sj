@@ -1,5 +1,6 @@
 ////////////////////////////////////////////////////////////
-// Procedure: Models.degradaTodo(int, int, int, int, int) //
+// Procedure: ViewModels.degradaTodo(int, int, int, int,  //
+//              int)                                      //
 //                                                        //
 // Depends for: Repositories.coloresActualesTiles()       //
 //              Repositories.coloresActualesSprites()     //

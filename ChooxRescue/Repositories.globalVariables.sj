@@ -5,7 +5,7 @@
 var tilesData = null;
 /////////////////////////////////////////////////////////
 //  Used for:                                          //
-//    Models.degradaTodo()                             //
-//    Models.apareceTodo()                             //
+//    ViewModels.degradaTodo()                         //
+//    ViewModels.apareceTodo()                         //
 /////////////////////////////////////////////////////////
 var velocidadCambioColor = 0;
